@@ -1,0 +1,24 @@
+{
+  "defaultEnv": "local",
+  "local": {
+    "driver": "pg",
+    "user": {"ENV": "POSTGRES_USER"},
+    "password": {"ENV": "POSTGRES_PASSWORD"},
+    "host": "localhost",
+    "schema": "public"
+  },
+    "dev": {
+      "driver": "pg",
+      "host": "localhost",
+      "database": {"ENV": "POSTGRES_DB"},
+      "user": {"ENV": "POSTGRES_USER"},
+      "password": {"ENV": "POSTGRES_PASSWORD"}
+    },
+    "test": {
+      "driver": "pg",
+      "host": "localhost",
+      "database": {"ENV": "POSTGRES_DB_TEST"},
+      "user": {"ENV": "POSTGRES_USER"},
+      "password": {"ENV": "POSTGRES_PASSWORD"}
+    }
+  }
