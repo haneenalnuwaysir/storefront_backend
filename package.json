@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npx tsc && npm run create-dev && npm run dev-migrate-up && node ./dist/server.js",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
-    "test": "export ENV=test npx tsc && npm run create-test && npm run test-migrate-up && jasmine-ts --port 3002 && npm run test-migrate-down && npm run drop-test",
+    "test": "export ENV=test npx tsc && npm run create-test && npm run test-migrate-up && jasmine && npm run test-migrate-down && npm run drop-test",
     "dev-migrate-up": "db-migrate --env dev up",
     "dev-migrate-down": "db-migrate --env dev reset",
     "test-migrate-up": "db-migrate --env test up",
