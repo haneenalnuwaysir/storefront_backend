@@ -1,22 +1,22 @@
 import supertest from 'supertest';
 import app from '../../server';
-import { userAuthenToken } from '../../utils/auth';
-import {UserMapping} from "../../models/user";
-import {ProductMapping} from "../../models/product";
+import { userAuthToken } from '../../utils/auth';
+import {UserModel} from "../../models/user";
+import {ProductModel} from "../../models/product";
 
  const request = supertest(app)
- const token: string = userAuthenToken({username: 'username', password: 'password'});
+ const token: string = userAuthToken({username: 'username', password: 'password'});
 
- const userMapping = new UserMapping();
- const productMapping = new ProductMapping();
+ const userModel = new UserModel();
+ const productModel = new ProductModel();
 
 describe('Order routes: ', () => {
     beforeAll(() => {
-        productMapping.create({
+        productModel.create({
             name: 'Product',
             price: 20
         });
-        userMapping.create({
+        userModel.create({
             username: 'username',
             password: 'password',
             firstname: 'firstname',
@@ -25,8 +25,8 @@ describe('Order routes: ', () => {
     });
 
     afterAll(() => {
-        productMapping.delete(3);
-        userMapping.delete(3);
+        productModel.delete(3);
+        userModel.delete(3);
     });
 
     it('should return a new order after it is created', () => {
